@@ -1,5 +1,10 @@
 // LIBRARIES
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom';
 
 // CSS
 import styles from './App.module.css';
