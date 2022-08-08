@@ -1,0 +1,8 @@
+#root {
+  /* placement */
+  display: flex;
+  flex-direction: column;
+
+  /* shape */
+  min-width: 10px; /* set minimum width here */
+}

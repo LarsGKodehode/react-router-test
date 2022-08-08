@@ -1,0 +1,9 @@
+.App {
+  /* placement */
+
+  /* shape */
+  min-height: 100vh; /* grab all the screen real estate*/
+
+  /* color */
+  background-color: var(--palette-secondary-500);
+}
