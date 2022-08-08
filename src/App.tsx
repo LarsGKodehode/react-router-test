@@ -20,13 +20,13 @@ function App() {
   };
 
   return (
-    <Router>
+    <main>
       <NavHeader {...NavHeaderProps}/>
       <nav id='App' className={styles["App"]} data-theme='bright'>
         <Link to='/home'>Home</Link>
         <Link to='/about'>About</Link>
       </nav>
-    </ Router>
+    </main>
   );
 };
 

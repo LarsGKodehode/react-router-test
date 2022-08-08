@@ -47,8 +47,8 @@ root.render(
     <Router>
       <Routes>
         <Route path='/' element={<App />} />
-        <Route path='/' element={<Home />} />
-        <Route path='/' element={<About />} />
+        <Route path='/Home' element={<Home />} />
+        <Route path='/About' element={<About />} />
       </Routes>
     </Router>
   </React.StrictMode>

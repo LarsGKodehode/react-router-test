@@ -3,9 +3,13 @@ interface AboutProps {
   title: string,
 };
 
+const aboutProps = {
+  title: "About",
+}
+
 // Components
-function About(props: AboutProps): JSX.Element {
-  const { title } = props;
+function About(): JSX.Element {
+  const { title } = aboutProps;
 
   return (
     <div>

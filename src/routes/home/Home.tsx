@@ -3,9 +3,13 @@ interface HomeProps {
   title: string,
 };
 
+const homeProps = {
+  title: "Home"
+}
+
 // Components
-function Home(props: HomeProps): JSX.Element {
-  const { title } = props;
+function Home(): JSX.Element {
+  const { title } = homeProps;
 
   return (
     <div>
