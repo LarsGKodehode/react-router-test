@@ -12,9 +12,9 @@ function Home(): JSX.Element {
   const { title } = homeProps;
 
   return (
-    <div>
+    <main>
       <h1>{title}</h1>
-    </div>
+    </main>
   );
 };
 

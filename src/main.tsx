@@ -24,6 +24,7 @@ import { HashRouter } from 'react-router-dom';
 import App from './App';
 import Home from './routes/home/Home';
 import About from './routes/about/About';
+import Missing404 from './routes/Missing404/Missing404';
 
 
 /**
@@ -46,9 +47,11 @@ root.render(
   <React.StrictMode>
     <Router>
       <Routes>
-        <Route path='/' element={<App />} />
-        <Route path='/Home' element={<Home />} />
-        <Route path='/About' element={<About />} />
+        <Route path='/' element={<App />}>
+          <Route path='home' element={<Home />} />
+          <Route path='about' element={<About />} />
+          <Route path='*' element={<Missing404 />} />
+        </Route>
       </Routes>
     </Router>
   </React.StrictMode>

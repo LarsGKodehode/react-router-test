@@ -3,6 +3,7 @@ import React from 'react';
 import {
   HashRouter as Router,
   Link,
+  Outlet,
 } from 'react-router-dom';
 
 // CSS
@@ -20,13 +21,14 @@ function App() {
   };
 
   return (
-    <main>
+    <div id='App' className={styles["App"]} data-theme='bright'>
       <NavHeader {...NavHeaderProps}/>
-      <nav id='App' className={styles["App"]} data-theme='bright'>
-        <Link to='/home'>Home</Link>
-        <Link to='/about'>About</Link>
+      <nav>
+        <Link to='home'>Home</Link>
+        <Link to='about'>About</Link>
       </nav>
-    </main>
+      <Outlet />
+    </div>
   );
 };
 

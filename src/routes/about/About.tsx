@@ -12,9 +12,9 @@ function About(): JSX.Element {
   const { title } = aboutProps;
 
   return (
-    <div>
+    <main>
       <h1>{title}</h1>
-    </div>
+    </main>
   );
 };
 
