@@ -1,9 +1,13 @@
 // Libraries
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  Link,
+} from 'react-router-dom';
 
-// Components
-import App from './App';
 
 // CSS
 import './assets/css/global.css';
@@ -13,6 +17,15 @@ import './main.css';
 
 // Fonts
 import './assets/fonts/Karla/Karla-VariableFont_wght.ttf';
+import { HashRouter } from 'react-router-dom';
+
+
+// Components
+import App from './App';
+import Home from './routes/home/Home';
+import About from './routes/about/About';
+import Missing404 from './routes/Missing404/Missing404';
+
 
 /**
  * DEVELOPMENT
@@ -27,8 +40,19 @@ import './assets/fonts/Karla/Karla-VariableFont_wght.ttf';
 }
 // DEVELOPMENT
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+
+root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+        <Route path='/' element={<App />}>
+          <Route path='home' element={<Home />} />
+          <Route path='about' element={<About />} />
+          <Route path='*' element={<Missing404 />} />
+        </Route>
+      </Routes>
+    </Router>
   </React.StrictMode>
 );

@@ -3,6 +3,7 @@
 
   /* shape */
   min-height: 100vh; /* grab all the screen real estate*/
+  padding: 2em 1em;
 
   /* color */
   background-color: var(--palette-secondary-500);
