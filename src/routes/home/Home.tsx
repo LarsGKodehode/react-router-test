@@ -4,8 +4,8 @@ interface HomeProps {
 };
 
 const homeProps = {
-  title: "Home"
-}
+  title: "Home",
+};
 
 // Components
 function Home(): JSX.Element {

@@ -5,7 +5,7 @@ interface AboutProps {
 
 const aboutProps = {
   title: "About",
-}
+};
 
 // Components
 function About(): JSX.Element {
