@@ -42,10 +42,12 @@ export function getInvoices(): Array<InvoiceData> {
   return invoices;
 };
 
-export function getInvoice(number: number): InvoiceData {
-  return invoices.find(
+export function getInvoice(number: number): InvoiceData | null{
+  const invoice = invoices.find(
     (invoice) => invoice.number === number
   );
+
+  return invoice || null;
 };
 
 export type {
