@@ -5,7 +5,6 @@ import {
   HashRouter as Router,
   Routes,
   Route,
-  Link,
 } from 'react-router-dom';
 
 
@@ -17,14 +16,16 @@ import './main.css';
 
 // Fonts
 import './assets/fonts/Karla/Karla-VariableFont_wght.ttf';
-import { HashRouter } from 'react-router-dom';
 
 
 // Components
 import App from './App';
 import Home from './routes/home/Home';
 import About from './routes/about/About';
+import Invoices from './routes/invoices/Invoices';
+import Invoice from './data/invoice';
 import Missing404 from './routes/Missing404/Missing404';
+
 
 
 /**
@@ -48,9 +49,16 @@ root.render(
     <Router>
       <Routes>
         <Route path='/' element={<App />}>
+
           <Route path='home' element={<Home />} />
+
           <Route path='about' element={<About />} />
+
+          <Route path='invoices' element={<Invoices />}>
+            <Route path=':invoiceId' element={<Invoice />} />
+          </Route>
           <Route path='*' element={<Missing404 />} />
+
         </Route>
       </Routes>
     </Router>
