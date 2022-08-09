@@ -23,7 +23,7 @@ import App from './App';
 import Home from './routes/home/Home';
 import About from './routes/about/About';
 import Invoices from './routes/invoices/Invoices';
-import Invoice from './data/invoice';
+import Invoice from './data/Invoice';
 import Missing404 from './routes/Missing404/Missing404';
 
 
