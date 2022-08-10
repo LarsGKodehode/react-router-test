@@ -1,5 +1,9 @@
 // 3rd parties
-import { NavLink, Outlet } from 'react-router-dom';
+import {
+  NavLink,
+  Outlet,
+  useSearchParams,
+} from 'react-router-dom';
 
 // CSS
 import styles from 'Invoices.module.css';
@@ -21,6 +25,7 @@ function Invoices(): JSX.Element {
   const { title } = invoicesProps;
 
   let invoices: Array<InvoiceData> = getInvoices();
+  let [serchParams, setSearchParams] = useSearchParams();
 
   return (
     <div
@@ -28,6 +33,7 @@ function Invoices(): JSX.Element {
         display: "flex",
       }}
     >
+
       <h1>{title}</h1>
       <nav
         style={{
@@ -35,7 +41,27 @@ function Invoices(): JSX.Element {
           padding: "1em",
         }}
       >
-        {invoices.map((invoice) => {
+
+        <input
+          value={serchParams.get("filter" || "")}
+          onChange={(event) => {
+            let filter = event.target.value;
+            if(filter) {
+              setSearchParams({filter});
+            } else {
+              setSearchParams({});
+            };
+          }}
+        />
+
+        {invoices
+          .filter ((invoice) => {
+            let filter = serchParams.get("filter");
+            if(!filter) return true;
+            let name = invoice.name.toLowerCase()
+            return name.startsWith(filter.toLowerCase());
+          })
+          .map((invoice) => {
             return(
               <NavLink
                 style={ ({isActive}) => {
@@ -52,6 +78,7 @@ function Invoices(): JSX.Element {
               </NavLink>
             )
           })}
+
       </nav>
       <Outlet />
     </div>
