@@ -1,6 +1,5 @@
 // 3rd parties
 import {
-  NavLink,
   Outlet,
   useSearchParams,
 } from 'react-router-dom';
@@ -11,6 +10,10 @@ import styles from 'Invoices.module.css';
 // DATA
 import { getInvoices, InvoiceData } from '../../data/data';
 
+// COMPONENTS
+import QueryNavLink from '../../components/QueryNavLink/QueryNavLink';
+import { CSSProperties } from 'react';
+
 // Interface
 interface InvoicesProps {
   title: string,
@@ -20,7 +23,7 @@ const invoicesProps = {
   title: "Invoices",
 };
 
-// Components
+// Component
 function Invoices(): JSX.Element {
   const { title } = invoicesProps;
 
@@ -43,7 +46,7 @@ function Invoices(): JSX.Element {
       >
 
         <input
-          value={serchParams.get("filter" || "")}
+          value={serchParams.get("filter" || "") || undefined}
           onChange={(event) => {
             let filter = event.target.value;
             if(filter) {
@@ -63,8 +66,8 @@ function Invoices(): JSX.Element {
           })
           .map((invoice) => {
             return(
-              <NavLink
-                style={ ({isActive}) => {
+              <QueryNavLink
+                style={({isActive}) => {
                   return {
                     display: 'block',
                     margin: "1em",
@@ -75,7 +78,7 @@ function Invoices(): JSX.Element {
                 key={invoice.number}
               >
                 {invoice.name}
-              </NavLink>
+              </QueryNavLink>
             )
           })}
 
