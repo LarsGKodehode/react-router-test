@@ -67,13 +67,14 @@ function Invoices(): JSX.Element {
           .map((invoice) => {
             return(
               <QueryNavLink
-                style={({isActive}) => {
-                  return {
-                    display: 'block',
-                    margin: "1em",
-                    color: isActive ? "red" : "",
-                  };
-                }}
+                style={(isActive: boolean) => {
+                    return {
+                      display: 'block',
+                      margin: "1em",
+                      color: isActive ? "red" : "",
+                    };
+                  }
+                }
                 to={`/invoices/${invoice.number}`}
                 key={invoice.number}
               >

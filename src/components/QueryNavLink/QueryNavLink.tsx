@@ -7,17 +7,17 @@ import {
 
 // CSS
 import styles from 'QueryNavLink.module.css';
-import { CSSProperties } from 'react';
 
 
 // Interface
 interface QueryNavLinkProps {
   to: string,
-  style: CSSProperties,
+  key: number,
+  style?: any,
 };
 
 // Components
-function QueryNavLink({to, ...props}: QueryNavLinkProps): JSX.Element {
+function QueryNavLink({to, ...props}: QueryNavLinkProps | any): JSX.Element {
 
   let location = useLocation();
 
