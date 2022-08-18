@@ -16,7 +16,7 @@ function NavHeader(props: NavHeaderProp) {
    * Creates links
    */
   function createLinks(linksProps: Array<LinkProps>): Array<JSX.Element> {
-    let linkArray: Array<JSX.Element> = [<p>The list is empty</p>];
+    const linkArray: Array<JSX.Element> = [<p>The list is empty</p>];
 
 
 
@@ -26,9 +26,12 @@ function NavHeader(props: NavHeaderProp) {
 
   return(
     <header>
-      <ul>
-        {React.Children.toArray(createLinks(linksProps))}
-      </ul>
+      <h1
+        style={{
+          textDecoration: "underline",
+          fontSize: "400%",
+        }}
+      >{title}</h1>
     </header>
   )
 };
