@@ -1,11 +1,18 @@
 // 3rd parties
-import { Link, Outlet } from 'react-router-dom';
+import {
+  Outlet,
+  useSearchParams,
+} from 'react-router-dom';
 
 // CSS
 import styles from 'Invoices.module.css';
 
 // DATA
 import { getInvoices, InvoiceData } from '../../data/data';
+
+// COMPONENTS
+import QueryNavLink from '../../components/QueryNavLink/QueryNavLink';
+import { CSSProperties } from 'react';
 
 // Interface
 interface InvoicesProps {
@@ -16,11 +23,12 @@ const invoicesProps = {
   title: "Invoices",
 };
 
-// Components
+// Component
 function Invoices(): JSX.Element {
   const { title } = invoicesProps;
 
   let invoices: Array<InvoiceData> = getInvoices();
+  let [serchParams, setSearchParams] = useSearchParams();
 
   return (
     <div
@@ -28,6 +36,7 @@ function Invoices(): JSX.Element {
         display: "flex",
       }}
     >
+
       <h1>{title}</h1>
       <nav
         style={{
@@ -35,17 +44,44 @@ function Invoices(): JSX.Element {
           padding: "1em",
         }}
       >
-        {invoices.map((invoice) => {
+
+        <input
+          value={serchParams.get("filter" || "") || undefined}
+          onChange={(event) => {
+            let filter = event.target.value;
+            if(filter) {
+              setSearchParams({filter});
+            } else {
+              setSearchParams({});
+            };
+          }}
+        />
+
+        {invoices
+          .filter ((invoice) => {
+            let filter = serchParams.get("filter");
+            if(!filter) return true;
+            let name = invoice.name.toLowerCase()
+            return name.startsWith(filter.toLowerCase());
+          })
+          .map((invoice) => {
             return(
-              <Link
-                style={{display: 'block', margin: "1em"}}
+              <QueryNavLink
+                style={({isActive}) => {
+                  return {
+                    display: 'block',
+                    margin: "1em",
+                    color: isActive ? "red" : "",
+                  };
+                }}
                 to={`/invoices/${invoice.number}`}
                 key={invoice.number}
               >
                 {invoice.name}
-              </Link>
+              </QueryNavLink>
             )
           })}
+
       </nav>
       <Outlet />
     </div>
