@@ -28,7 +28,7 @@ function Invoices(): JSX.Element {
   const { title } = invoicesProps;
 
   let invoices: Array<InvoiceData> = getInvoices();
-  let [serchParams, setSearchParams] = useSearchParams();
+  let [serchParams, setSearchParams] = useSearchParams("");
 
   return (
     <div
@@ -46,7 +46,7 @@ function Invoices(): JSX.Element {
       >
 
         <input
-          value={serchParams.get("filter" || "") || undefined}
+          value={serchParams.get("filter") || ""}
           onChange={(event) => {
             let filter = event.target.value;
             if(filter) {
@@ -71,7 +71,7 @@ function Invoices(): JSX.Element {
                     return {
                       display: 'block',
                       margin: "1em",
-                      color: isActive ? "red" : "",
+                      color: isActive ? "black" : "",
                     };
                   }
                 }
