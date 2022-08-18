@@ -15,7 +15,18 @@ export default function Invoice(): JSX.Element {
   };
 
   return (
-    <main style={{padding: "1em", backgroundColor: "var(--palette-white)"}}>
+    <main style={{
+      padding: "1em",
+      minWidth: "20em",
+      borderRadius: `
+        0
+        var(--spacing-large)
+        var(--spacing-large)
+        0
+      `,
+      backgroundColor: "var(--palette-primary-500)",
+      color: "var(--palette-primary-500-text"
+    }}>
       <h2>Total Due: {invoice.amount}</h2>
       <p>
         {invoice.name}: {invoice.number}

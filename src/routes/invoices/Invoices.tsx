@@ -31,7 +31,7 @@ function Invoices(): JSX.Element {
   let [serchParams, setSearchParams] = useSearchParams("");
 
   return (
-    <div
+    <main
       style={{
         display: "flex",
       }}
@@ -71,7 +71,7 @@ function Invoices(): JSX.Element {
                     return ({
                       display: 'block',
                       margin: "1em",
-                      color: isActive ? "black" : "",
+                      color: isActive ? "purple" : "inherit",
                     })
                   }
                 }
@@ -85,7 +85,7 @@ function Invoices(): JSX.Element {
 
       </nav>
       <Outlet />
-    </div>
+    </main>
   );
 };
 

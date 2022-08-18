@@ -7,4 +7,16 @@
 
   /* color */
   background-color: var(--palette-secondary-500);
+  color: white;
+}
+
+a {
+  color: inherit;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: xx-large;
+}
+
+main {
+  margin: var(--spacing-huge);
 }

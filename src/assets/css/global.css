@@ -19,7 +19,7 @@ html, body {
 /* Global spacing */
 :root {
   --spacing-huge: 50px;
-  --spacing-large: 40xp;
+  --spacing-large: 40px;
   --spacing-medium: 20px;
   --spacing-small: 10px;
   --spacing-tiny: 5px;

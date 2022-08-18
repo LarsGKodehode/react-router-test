@@ -15,7 +15,6 @@ function App() {
   const NavHeaderProps: NavHeaderProp = {
     title: "React Router Test",
     linksProps: [
-      
     ],
   };
 
