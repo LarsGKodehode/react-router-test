@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import Missing404 from "../routes/Missing404/Missing404";
-import { getInvoice } from "./data";
+import { getInvoice } from "./invoice-data";
 
 export default function Invoice(): JSX.Element {
   let params = useParams();

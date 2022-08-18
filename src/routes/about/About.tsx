@@ -1,3 +1,6 @@
+// Data
+import { getContentAbout } from '../../data/data-about';
+
 // Interface
 interface AboutProps {
   title: string,
@@ -10,10 +13,12 @@ const aboutProps = {
 // Components
 function About(): JSX.Element {
   const { title } = aboutProps;
+  const aboutContent = getContentAbout();
 
   return (
     <main>
-      <h1>{title}</h1>
+      <h1>{aboutContent.title}</h1>
+      <p>{aboutContent.body}</p>
     </main>
   );
 };

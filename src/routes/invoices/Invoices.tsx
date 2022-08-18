@@ -8,7 +8,7 @@ import {
 import styles from 'Invoices.module.css';
 
 // DATA
-import { getInvoices, InvoiceData } from '../../data/data';
+import { getInvoices, InvoiceData } from '../../data/invoice-data';
 
 // COMPONENTS
 import QueryNavLink from '../../components/QueryNavLink/QueryNavLink';
